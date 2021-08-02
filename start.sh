@@ -53,6 +53,7 @@ if [ "$DO_LOOP" == "yes" ]; then
 		"$PHP_BINARY" "$POCKETMINE_FILE" $@
 		echo "To escape the loop, press CTRL+C now. Otherwise, wait the server to restart."
 		echo ""
+		sleep 1
 		((LOOPS++))
 	done
 else
