@@ -63,4 +63,10 @@ class Restart extends PluginBase{
     $this->plugin->getServer()->shutdown();
   }
   
+  public function onCommand(CommandSender $sender, Command $cmd, string $label, array $array):bool{
+    if($cmd->getName() === 'reboot'){
+      $this->restart();
+    }
+  }
+  
 }
