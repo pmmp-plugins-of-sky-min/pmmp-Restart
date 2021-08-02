@@ -17,7 +17,18 @@ use pocketmine\scheduler\ClosureTask;
 
 class Restart extends PluginBase{
   
+  private static $instance = null;
+  
   private const DELAY = 30;
+  
+  public static function getInstance():Restart{
+    return self::$instance;
+  }
+	
+  public function onLoad ():void{
+    if (self::$instance === null)
+      self::$instance = $this;
+  }
   
   public function onEnable():void{
     $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
@@ -28,7 +39,7 @@ class Restart extends PluginBase{
   public function restart():void{
     $server = $this->getServer();
     foreach($server->getLevels() as $level){
-      
+      $level->save();
     }
     foreach($server->getOnlinePlayers() as $player){
       
