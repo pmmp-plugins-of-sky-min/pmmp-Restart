@@ -26,7 +26,11 @@ class Restart extends PluginBase{
   }
   
   public function restart():void{
-    foreach($this->getServer()->getLevels() as $level){
+    $server = $this->getServer();
+    foreach($server->getLevels() as $level){
+      
+    }
+    foreach($server->getOnlinePlayers() as $player){
       
     }
   }
