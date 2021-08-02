@@ -41,14 +41,16 @@ class Restart extends PluginBase{
   
   public function restart():void{
     $server = $this->getServer();
-    foreach($server->getOnlinePlayers() as $player){
-      $player->save();
-      
-    }
+    $ip = $server->getIp();
+    $port = $server->getPort();
     foreach($server->getLevels() as $level){
       $level->save(true);
     }
-    $this->plugin->getServer ()->shutdown ();
+    foreach($server->getOnlinePlayers() as $player){
+      $player->save();
+      $player->transfer($ip, $port, '자동 재접속을 시도 합니다.');
+    }
+    $this->plugin->getServer()->shutdown();
   }
   
 }
