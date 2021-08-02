@@ -13,6 +13,11 @@ declare(strict_types = 1);
 namespace skymin\server;
 
 use pocketmine\plugin\PluginBase;
+
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\command\PluginCommand;
+
 use pocketmine\scheduler\ClosureTask;
 
 class Restart extends PluginBase{
