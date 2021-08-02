@@ -36,6 +36,11 @@ class Restart extends PluginBase{
   }
   
   public function onEnable():void{
+    $cmd = new PluginCommand('reboot', $this);
+    $cmd->setPermission('op');
+    $cmd->setUsage('/reboot');
+    $cmd->setDescription('made  by sinestrea');
+    $this->getServer()->getCommandMap()->register($this->getDescription()->getName(), $cmd);
     $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
       $this->getServer()->broadcastMessage('§l§a[§f재부팅§a]§r 3초뒤 재부팅 됩니다.');
     }), 120 * self::DELAY - 60);
