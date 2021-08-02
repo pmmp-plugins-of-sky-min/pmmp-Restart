@@ -32,17 +32,20 @@ class Restart extends PluginBase{
   
   public function onEnable():void{
     $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
-      $this->restart();
-    }), 120 * self::DELAY);
+      $this->getServer()->broadcastMessage('§l§a[§f재부팅§a]§r 3초뒤 재부팅 됩니다.');
+    }), 120 * self::DELAY - 60);
+    $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
+      $this->getServer()->broadcastMessage('§l§a[§f재부팅§a]§r 3초뒤 재부팅 됩니다.');
+    }), 120 * self::DELAY - 60);
   }
   
   public function restart():void{
     $server = $this->getServer();
-    foreach($server->getLevels() as $level){
-      $level->save();
-    }
     foreach($server->getOnlinePlayers() as $player){
       
+    }
+    foreach($server->getLevels() as $level){
+      $level->save();
     }
   }
   
