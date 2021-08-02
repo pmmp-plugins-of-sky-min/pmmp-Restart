@@ -35,7 +35,7 @@ class Restart extends PluginBase{
       $this->getServer()->broadcastMessage('§l§a[§f재부팅§a]§r 3초뒤 재부팅 됩니다.');
     }), 120 * self::DELAY - 60);
     $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
-      $this->getServer()->broadcastMessage('§l§a[§f재부팅§a]§r 3초뒤 재부팅 됩니다.');
+      $this->restart();
     }), 120 * self::DELAY - 60);
   }
   
