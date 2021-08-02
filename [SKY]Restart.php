@@ -48,6 +48,7 @@ class Restart extends PluginBase{
     foreach($server->getLevels() as $level){
       $level->save(true);
     }
+    $this->plugin->getServer ()->shutdown ();
   }
   
 }
