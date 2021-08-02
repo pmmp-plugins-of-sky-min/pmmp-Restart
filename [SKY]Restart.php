@@ -26,9 +26,7 @@ class Restart extends PluginBase{
   
   private static $instance = null;
   
-  private const DELAY = 30;
-  private const IP = 'nif.kro.kr';
-  private const PORT = 19134;
+  private const DELAY = 30; //재부팅 주기(분)
   
   public static function getInstance():Restart{
     return self::$instance;
