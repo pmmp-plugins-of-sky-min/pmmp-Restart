@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @name DragonDeathEffect
+ * @name ServerRestart
  * @main skymin\server\Restart
  * @author skymin
  * @version SKY
