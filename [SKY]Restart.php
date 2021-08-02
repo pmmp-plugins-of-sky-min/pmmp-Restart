@@ -36,7 +36,7 @@ class Restart extends PluginBase{
     }), 120 * self::DELAY - 60);
     $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
       $this->restart();
-    }), 120 * self::DELAY - 60);
+    }), 120 * self::DELAY);
   }
   
   public function restart():void{
