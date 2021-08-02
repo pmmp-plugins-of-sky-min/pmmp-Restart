@@ -25,8 +25,8 @@ class Restart extends PluginBase{
   private static $instance = null;
   
   private const DELAY = 30;
-  private const IP = 'nif.kro.kr';
-  private const PORT = 19134;
+  private const IP = 'example.kro.kr';
+  private const PORT = 19132;
   
   public static function getInstance():Restart{
     return self::$instance;
