@@ -60,7 +60,7 @@ class Restart extends PluginBase{
       $player->save();
       $player->transfer($ip, $port, '자동 재접속을 시도 합니다.');
     }
-    $this->plugin->getServer()->shutdown();
+    $this->getServer()->shutdown();
   }
   
   public function onCommand(CommandSender $sender, Command $cmd, string $label, array $array):bool{
