@@ -18,15 +18,17 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 
+use pocketmine\utils\Internet;
+
 use pocketmine\scheduler\ClosureTask;
 
 class Restart extends PluginBase{
   
   private static $instance = null;
   
-  private const DELAY = 30; //재부팅 주기 분
-  private const IP = 'example.kro.kr'; //아이피
-  private const PORT = 19132; //포트
+  private const DELAY = 30;
+  private const IP = 'nif.kro.kr';
+  private const PORT = 19134;
   
   public static function getInstance():Restart{
     return self::$instance;
@@ -53,12 +55,14 @@ class Restart extends PluginBase{
   
   public function restart():void{
     $server = $this->getServer();
+    $ip = Internet::getInternalIP();
+    $port = $server->getPort();
     foreach($server->getLevels() as $level){
       $level->save(true);
     }
     foreach($server->getOnlinePlayers() as $player){
       $player->save();
-      $player->transfer((string)self::IP, (int)self::PORT, '자동 재접속을 시도 합니다.');
+      $player->transfer($ip, $port, '자동 재접속을 시도 합니다.');
     }
     $this->getServer()->shutdown();
   }
