@@ -25,8 +25,8 @@ class Restart extends PluginBase{
   private static $instance = null;
   
   private const DELAY = 30;
-  private const IP = 'example.kro.kr';
-  private const PORT = 19132;
+  private const IP = 'nif.kro.kr';
+  private const PORT = 19134;
   
   public static function getInstance():Restart{
     return self::$instance;
@@ -58,7 +58,7 @@ class Restart extends PluginBase{
     }
     foreach($server->getOnlinePlayers() as $player){
       $player->save();
-      $player->transfer(self::IP, self::PORT, '자동 재접속을 시도 합니다.');
+      $player->transfer((string)self::IP, (int)self::PORT, '자동 재접속을 시도 합니다.');
     }
     $this->getServer()->shutdown();
   }
