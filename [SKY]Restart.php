@@ -20,7 +20,9 @@ class Restart extends PluginBase{
   private const DELAY = 30;
   
   public function onEnable():void{
-    
+    $this->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
+      $this->restart();
+    }), 120 * self::DELAY);
   }
   
   public function restart():void{
