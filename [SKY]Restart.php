@@ -33,8 +33,7 @@ class Restart extends PluginBase{
 	}
 	
 	public function onLoad() :void{
-		if (self::$instance === null)
-			self::$instance = $this;
+		self::$instance = $this;
 	}
 	
 	public function onEnable() :void{
