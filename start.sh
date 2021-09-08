@@ -51,7 +51,7 @@ if [ "$DO_LOOP" == "yes" ]; then
 			echo "Restarted $LOOPS times"
 		fi
 		"$PHP_BINARY" "$POCKETMINE_FILE" $@
-		echo "To escape the loop, press CTRL+C now. Otherwise, wait the server to restart."
+		echo "To escape the loop, press CTRL+C now. Otherwise, wait 1 seconds for the server to restart."
 		echo ""
 		sleep 1
 		((LOOPS++))
