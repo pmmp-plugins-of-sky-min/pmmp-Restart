@@ -19,6 +19,7 @@ final class MainCmd extends Command{
 	}
 	
 	public function execute(CommandSender $sender, string $commandLabel, array $args) :void{
+		if(!$this->testPermission($sender)) return;
 		$this->alert();
 		$this->plugin->getScheduler()->scheduleDelayedTask(new ClosureTask(function() : void{
 			$this->restart();
