@@ -1,0 +1,9 @@
+name: reboot
+main: origin\reboot\Loader
+api: 4.0.0
+version : SKY
+author: skymin
+
+permissions:
+  reboot.cmd.permission:
+    default: op
